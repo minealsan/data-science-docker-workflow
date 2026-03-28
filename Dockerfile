@@ -10,5 +10,5 @@ RUN micromamba create -y -f environment.yml && \
 SHELL ["micromamba", "run", "-n", "ds-env", "/bin/bash", "-c"]
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER . /workspace
-
+ 
 CMD ["bash"]
