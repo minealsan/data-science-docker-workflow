@@ -1,0 +1,26 @@
+{
+    "name": "ds-docker-workflow",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "overrideCommand": true,
+    "remoteUser": "mambauser",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter",
+                "github.copilot",
+                "github.copilot-chat"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/conda/envs/ds-env/bin/python"
+            }
+        }
+    },
+    "postCreateCommand": "micromamba run -n ds-env python -m ipykernel install --user --name ds-env --display-name \"Python (ds-env)\""
+}
