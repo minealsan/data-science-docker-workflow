@@ -11,5 +11,6 @@ dependencies:
   - pandas
   - matplotlib
   - scikit-learn
+  - seaborn
   - pip:
       - -r requirements.txt
